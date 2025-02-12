@@ -16,10 +16,39 @@ if ($IsMacOS -or ($PSEdition -eq 'Desktop')) {
     Return
 }
 
-Get-ChildItem $PSScriptRoot\functions\*.ps1 -Recurse |
-ForEach-Object {
-    . $_.FullName
+$functionPathList = @(
+    "$PSScriptRoot\functions\private\helpers.ps1"
+    "$PSScriptRoot\functions\private\tui-helpers.ps1"
+    "$PSScriptRoot\functions\public\Add-PSWorkItemCategory.ps1"
+    "$PSScriptRoot\functions\public\Complete-PSWorkItem.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItem.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItemArchive.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkitemCategory.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItemData.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItemDatabase.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItemPreferences.ps1"
+    "$PSScriptRoot\functions\public\Get-PSWorkItemReport.ps1"
+    "$PSScriptRoot\functions\public\Initialize-PSWorkItemDatabase.ps1"
+    "$PSScriptRoot\functions\public\New-PSWorkItem.ps1"
+    "$PSScriptRoot\functions\public\Open-PSWorkItemConsole.ps1"
+    "$PSScriptRoot\functions\public\Open-README.ps1"
+    "$PSScriptRoot\functions\public\Remove-PSWorkItem.ps1"
+    "$PSScriptRoot\functions\public\Remove-PSWorkItemArchive.ps1"
+    "$PSScriptRoot\functions\public\Remove-PSWorkItemCategory.ps1"
+    "$PSScriptRoot\functions\public\Set-PSWorkItem.ps1"
+    "$PSScriptRoot\functions\public\Set-PSWorkItemCategory.ps1"
+    "$PSScriptRoot\functions\public\Update-PSWorkItemDatabase.ps1"
+    "$PSScriptRoot\functions\public\Update-PSWorkItemPreference.ps1"
+)
+
+foreach ($functionPath in $functionPathList) {
+    . $functionPath
 }
+
+# Get-ChildItem $PSScriptRoot\functions\*.ps1 -Recurse |
+# ForEach-Object {
+#     . $_.FullName
+# }
 
 #testing localization
 #Write-Host $strings.Testing -fore cyan

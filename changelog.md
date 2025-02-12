@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## 1.11.2 - 2025-02-12
+
+This release was __not__ pushed to Jeff Hicks' upstream repository.
+
+### Changed
+
+- Changed `PSWorkItem.psm1` to explicitly load specific script (`.ps1`)
+files containing functions instead of searching for and loading all script files under the `functions` directory
+  
 ## [1.11.1] - 2024-12-04
 
 This release was __not__ pushed to the PowerShell Gallery.
